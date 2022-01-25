@@ -3,12 +3,18 @@ import { render } from "react-dom";
 import "normalize.css";
 import App from "./app";
 import { GlobalStyles } from "./global-styles";
-import { Firebase } from "./lib/firebase.prod";
+import { firebase } from "./lib/firebase.prod";
+import { FirebaseContext } from './context/firebase';
 
 render(
   <>
-    <GlobalStyles />
-    <App />
+    <FirebaseContext.Provider value={{ firebase }}>
+      <GlobalStyles />
+      <App />
+    </FirebaseContext.Provider>
   </>,
   document.getElementById("root")
 );
+
+
+//3:29:30 HeaderContainer
